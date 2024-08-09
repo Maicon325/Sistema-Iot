@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Temperatura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .data {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .data p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .data span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monitoramento de Temperatura</h1>
+    <div class="data">
+        <p>Temperatura: <span id="temperature">--</span> °C</p>
+        <p>Humidade: <span id="humidity">--</span> %</p>
+    </div>
+    <script>
+        function fetchEnvironmentData() {
+            // Simulate environmental data
+            return {
+                temperature: (Math.random() * 15 + 15).toFixed(2),
+                humidity: (Math.random() * 40 + 30).toFixed(2)
+            };
+        }
+
+        function updateData() {
+            const data = fetchEnvironmentData();
+            document.getElementById('temperature').textContent = data.temperature;
+            document.getElementById('humidity').textContent = data.humidity;
+        }
+
+        setInterval(updateData, 2000); // Refresh every 2 seconds
+        updateData(); // Initial fetch
+    </script>
+</body>
+</html>
+
+
+
